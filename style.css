@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "signup"
+        "features";
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.header {
+    grid-area: header;
+    background-color: #87CEFA;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    grid-area: content;
+    background-color: #F0F0F0;
+    padding: 20px;
+    text-align: center;
+}
+
+.signup {
+    grid-area: signup;
+    background-color: #ADD8E6;
+    padding: 20px;
+    text-align: center;
+}
+
+.features {
+    grid-area: features;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+.feature {
+    background-color: #FFD700;
+    padding: 20px;
+    text-align: center;
+}
+
+.feature:nth-child(2) {
+    background-color: #B19CD9;
+}
+
+.feature:nth-child(3) {
+    background-color: #F08080;
+}
+@media (min-width: 1000px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "content"
+            "signup features";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .feature:nth-child(3),
+    .feature:nth-child(4) {
+        grid-column: span 1;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "features"
+            "signup"
+            "content";
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+}
